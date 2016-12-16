@@ -1,4 +1,11 @@
 #pragma once
+
+#include <Windows.h>
+#include <SDL/SDL.h>
+#include <GL/glew.h>
+
+enum class GameState{ PLAY, EXIT };
+
 class MainGame
 {
 public:
@@ -7,7 +14,18 @@ public:
 
 	void run();
 	
+	
+private:
 	void initSystems();
+	void gameLoop();
+	void processInput();
+	void drawGame();
+
+	SDL_Window* _window;
+	int _screenWidth;
+	int _screenHeight;
+
+	GameState _gameState;
 
 };
 
